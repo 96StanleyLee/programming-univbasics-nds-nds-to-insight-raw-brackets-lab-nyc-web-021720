@@ -9,17 +9,20 @@ pp nds[0] = #:name :movies => :title : studio :worldwide gross: releaseyear
 
 
 def directors_totals(nds)
-  while name_index < nds.length do
-    directors_name = nds[name_index][:name]
-    total[directors_name] = 0
-    movie_index = 0
-    while movie_index < nds[name_index][:movies].length do
+  name_index = 0
+total = {}
 
-      total[directors_name] += nds[name_index][:movies][movie_index][:worldwide_gross]
-      movie_index += 1
-  end
-  name_index += 1
-  end
+while name_index < nds.length do
+  directors_name = nds[name_index][:name]
+  total[directors_name] = 0
+  movie_index = 0
+  while movie_index < nds[name_index][:movies].length do
+
+    total[directors_name] += nds[name_index][:movies][movie_index][:worldwide_gross]
+    movie_index += 1
+end
+name_index += 1
+end
 
   # Remember, it's always OK to pretty print what you get *in* to make sure
   # that you know what you're starting with!
